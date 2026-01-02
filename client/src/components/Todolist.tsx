@@ -65,7 +65,7 @@ const Todolist = ({editingId, setEditingId}:props) => {
                   <td><EditTodo task={todo.description} todoID={todo.todo_id}/></td>
                 ) : (
                 <td>
-                  <button onClick={()=>setEditingId(todo.todo_id)}>edit</button>
+                  <button onClick={()=>setEditingId(todo.todo_id)} style={{backgroundColor:"#0055BF"}}>edit</button>
                 </td>
                 )
               }

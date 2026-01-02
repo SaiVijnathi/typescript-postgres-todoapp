@@ -34,7 +34,7 @@ const NewTodo = () => {
 
     return <div>
         <Navbar/>
-        <div>
+        <div className="newTodo">
             <input placeholder="new todo" onChange={(e)=>setTask(e.target.value)}/>
             <button onClick={createTodo}>create</button>
         </div>

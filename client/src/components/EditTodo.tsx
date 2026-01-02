@@ -26,7 +26,7 @@ const EditTodo = ({task, todoID}:props) => {
     }
 
     return <div>
-        <div>
+        <div className="pop-up">
             <input value={todo} onChange={(e)=>setTodo(e.target.value)}/>
             <button onClick={saveEditedTodo}>save</button>
         </div>

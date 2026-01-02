@@ -4,8 +4,158 @@
   padding: 2rem;
   text-align: center;
 }
-/* 
+
 body{
-  background-color: white;
-  color: black;
+  display: block;
+}
+
+/* html, body {
+  display: block;
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  background: transparent;
 } */
+
+
+.form-container{
+  background-color: white;
+  border: 5px solid black;
+  border-radius: 18px;
+  padding: 50px 70px;
+  font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  box-shadow: 4px 4px 0 black;
+}
+
+.form-container input{
+  background-color: white;
+  border: 3px solid #0055BF;
+  border-radius: 10px;
+  margin: 5px auto 15px auto;
+  font-size: 17px;
+  color: black;
+  font-weight: 600;
+  padding: 7px 5px;
+  display: block;
+}
+
+.form-container input:focus{
+  border: 3px solid red;
+  outline: none;
+}
+
+.form-container label{
+  display: inline-block;
+  width: 100px;
+  font-weight: 500;
+  font-size: 17px;
+  color: black;
+}
+
+.span{
+  font-size: 16px;
+  color: blue;
+}
+
+.span a{
+  color: green;
+}
+
+.span a:hover{
+  color: rgb(1, 51, 1);
+  text-decoration: underline;
+}
+
+.blocks{
+  display: flex;
+  gap: 10px;
+  margin-bottom: 30px;
+  justify-content: center;
+}
+
+.blocks div{
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  color: white;
+  line-height: 50px;
+  font-weight: 700;
+}
+
+.navbar{
+  display: flex;
+  justify-content: space-between;
+  width: 1200px;
+  height: 50px;
+  line-height: 50px;
+  margin-bottom: 50px;
+}
+
+.nav-div{
+  display: flex;
+  flex-direction: row;
+  font-size: 18px;
+  gap: 30px;
+}
+
+#logout{
+  background-color: green;
+  color: white;
+  padding: 0 10px;
+  height: 50px;
+}
+
+#logout:hover{
+  background-color: rgb(2, 97, 2);
+  cursor: pointer;
+}
+
+.newTodo{
+  width: 1200px;
+  margin-bottom: 40px;
+}
+
+.newTodo input{
+  width: 500px;
+  background-color: white;
+  border: 3px solid blue;
+  font-size: 18px;
+  padding: 5px;
+  margin-right: 10px;
+  color: black;
+}
+
+.newTodo input:focus{
+  border : 3px solid red;
+  outline: none;
+}
+
+.newTodo button{
+  background-color: #E3000B;
+  border-radius: 0;
+  font-size: 18px;
+  padding: 10px;
+  margin-left: 10px;
+  border: none;
+}
+
+.newTodo button:hover{
+  border: none;
+  background-color: rgb(184, 4, 4);
+}
+
+table{
+  border: 3px solid black;
+}
+
+table, th, td {
+  font-size: 17px;
+  border-collapse: collapse;
+  padding: 20px;
+  margin: auto;
+  width: 900px;
+  background-color: white;
+}

@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import Logo from "./Logo";
 
 const Navbar = () => {
 
@@ -9,8 +10,12 @@ const Navbar = () => {
         localStorage.removeItem("token");
     }
 
-    return <div>
-        <button onClick={logout}>Logout</button>
+    return <div className="navbar">
+        <Logo/>
+        <div  className="nav-div">
+            <div>user mail</div>
+            <div id="logout" onClick={logout}>Logout</div>
+        </div>
     </div>
 }
 

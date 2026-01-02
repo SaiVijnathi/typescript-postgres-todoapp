@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import {Button} from "@mui/material"
+import Logo from "./Logo";
 
 const Login = () => {
 
@@ -31,28 +33,40 @@ const Login = () => {
 
   return (
     <>
-    <form onSubmit={userLogin}>
-      <div>
-        <label>Email:</label>
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-      </div>
-      <div>
-        <label>Password:</label>
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-      </div>
-      <button type="submit">Login</button>
-    </form>
-    <span>Don't have an account?<Link to="/signup">Signup</Link></span>
+    <Logo/>
+    <div className="form-container">
+      <form onSubmit={userLogin}>
+        <div>
+          <label>Email</label>
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+        </div>
+        <div>
+          <label>Password</label>
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+        </div>
+      <Button
+          type="submit"
+          variant="contained"
+          sx={{
+            backgroundColor: "#E3000B",
+            "&:hover": { backgroundColor: "#be0202ff" }, borderRadius:"10px", margin:"10px", fontWeight:"600", width:"200px", fontSize:"15px"
+          }}
+        >
+          Login
+    </Button>
+      </form>
+    <span className="span">Don't have an account? <Link to="/signup">Signup</Link></span>
+    </div>
     </>
   );
 };

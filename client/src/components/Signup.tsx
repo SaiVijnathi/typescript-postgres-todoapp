@@ -1,5 +1,7 @@
+import { Button } from "@mui/material";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import Logo from "./Logo";
 
 const Signup = () => {
   const [name, setName] = useState<string>("");
@@ -31,6 +33,8 @@ const Signup = () => {
 
   return (
     <>
+    <Logo/>
+    <div className="form-container">
     <form onSubmit={userSignup}>
       <div>
         <label>Name:</label>
@@ -59,9 +63,19 @@ const Signup = () => {
           required
         />
       </div>
-      <button type="submit">Signup</button>
+      <Button
+      type="submit"
+        variant="contained"
+        sx={{
+          backgroundColor: "red",
+          "&:hover": { backgroundColor: "#c90909ff" }, borderRadius:"10px", margin:"10px", fontWeight:"600", width:"200px", fontSize:"15px"
+        }}
+      >
+        Signup
+  </Button>
     </form>
-    <span>Already have an account?<Link to="/">Login</Link></span>
+    <span className="span">Already have an account? <Link to="/">Login</Link></span>
+    </div>
     </>
   );
 };
