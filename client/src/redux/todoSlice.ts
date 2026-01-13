@@ -1,13 +1,13 @@
-import { createSlice } from "@reduxjs/toolkit";
+// import { createSlice } from "@reduxjs/toolkit";
 
-const todoSlice = createSlice({
-    name: "todos",
-    initialState: {
-        list : []
-    },
-    reducers: {},
-    extraReducers : (builder) => {
-        builder
-        .addCase()
-    }
-})
+// const todoSlice = createSlice({
+//     name: "todos",
+//     initialState: {
+//         list : []
+//     },
+//     reducers: {},
+//     extraReducers : (builder) => {
+//         builder
+//         .addCase()
+//     }
+// })
