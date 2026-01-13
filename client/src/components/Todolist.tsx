@@ -30,7 +30,7 @@ const Todolist = ({editingId, setEditingId}:props) => {
 
         const result = await response.json();
         console.log(result.data);
-        setTodos(result.data)
+        setTodos(result.data);
     };
 
     useEffect(()=>{
@@ -44,6 +44,7 @@ const Todolist = ({editingId, setEditingId}:props) => {
       const response = await fetch(`http://localhost:5467/deletetodo/${id}`,reqOptions);
       const result = await response.json();
       alert(result.status);
+      getAllTodos();
     }
 
     return <div>

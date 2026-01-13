@@ -10,7 +10,10 @@ createRoot(document.getElementById('root')!).render(
   <GlobalStyles
     styles={{
       body: {
-        backgroundColor: "#FFD500",
+        // backgroundColor: "#FFD500",
+        backgroundColor: "#FFEB80",
+        // backgroundColor: "#E1D9A3",
+        // backgroundColor: "#C2B280",
       },
     }}
   />
