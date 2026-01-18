@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { API_BASE } from "../config/api"
 
 type props = {
     task : string,
@@ -19,7 +20,7 @@ const EditTodo = ({task, todoID}:props) => {
             },
             body : JSON.stringify(dataToSend)
         }
-        const response = await fetch(`http://localhost:5467/edittodo/${todoID}`, reqOptions);
+        const response = await fetch(`${API_BASE}/edittodo/${todoID}`, reqOptions);
         const result = await response.json();
         alert(result.status)
         console.log(result.data)

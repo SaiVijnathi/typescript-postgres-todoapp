@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import {Button} from "@mui/material"
 import Logo from "./Logo";
+import {API_BASE} from '../config/api'
 
 const Login = () => {
 
@@ -22,7 +23,7 @@ const Login = () => {
         "Content-Type" : "application/json"
       }
     }
-    const response = await fetch("http://localhost:5467/login", reqOptions);
+    const response = await fetch(`${API_BASE}/login`, reqOptions);
     const result = await response.json();
     alert(result.message);
     localStorage.setItem("token", result.data)

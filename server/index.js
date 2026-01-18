@@ -5,7 +5,11 @@ const jwt = require("jsonwebtoken");
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+    origin: process.env.FRONTEND_URL,
+    credentials: true
+}));
+
 app.use(express.json());
 
 //api endpoints
@@ -102,6 +106,6 @@ app.delete("/deletetodo/:id", async (req,res) => {
     }
 })
 
-app.listen(5467, () => {
+app.listen(process.env.PORT, () => {
     console.log("Listening to port 5467");
 });

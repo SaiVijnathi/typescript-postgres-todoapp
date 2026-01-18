@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import EditTodo from "./EditTodo";
+import { API_BASE } from "../config/api";
 
 type props = {
   editingId : number,
@@ -26,7 +27,7 @@ const Todolist = ({editingId, setEditingId}:props) => {
             Authorization: `Bearer ${token}`,
         }
         }
-        const response = await fetch("http://localhost:5467/gettodos", reqOptions);
+        const response = await fetch(`${API_BASE}/gettodos`, reqOptions);
 
         const result = await response.json();
         console.log(result.data);

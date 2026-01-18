@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Todolist from "./Todolist";
 import Navbar from "./Navbar";
+import { API_BASE } from "../config/api";
 
 const NewTodo = () => {
     const [task, setTask] = useState<string>("");
@@ -26,7 +27,7 @@ const NewTodo = () => {
                 "Authorization": `Bearer ${token}`
             }
         }
-        const response = await fetch("http://localhost:5467/createtodo", reqOptions);
+        const response = await fetch(`${API_BASE}/createtodo`, reqOptions);
         const result = await response.json();
         console.log(result.data)
         alert(result.status)

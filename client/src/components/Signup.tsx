@@ -2,6 +2,7 @@ import { Button } from "@mui/material";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Logo from "./Logo";
+import { API_BASE } from "../config/api";
 
 const Signup = () => {
   const [name, setName] = useState<string>("");
@@ -24,7 +25,7 @@ const Signup = () => {
         "Content-Type" : "application/json"
       }
     }
-    const response = await fetch("http://localhost:5467/signup",reqOptions);
+    const response = await fetch(`${API_BASE}/signup`,reqOptions);
     const result = await response.json();
     console.log("Func executed!!")
     console.log("response from signing up",result);
