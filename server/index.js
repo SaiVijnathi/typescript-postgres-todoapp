@@ -9,21 +9,11 @@ const allowedOrigins = [process.env.FRONTEND_URL]; // Vercel URL
 
 //cors
 app.use(cors({
-    origin: function(origin, callback){
-        if(!origin) return callback(null, true); // allow non-browser requests
-        if(allowedOrigins.indexOf(origin) === -1){
-            const msg = `The CORS policy for this site does not allow access from the specified Origin.`;
-            return callback(new Error(msg), false);
-        }
-        return callback(null, true);
-    },
-    methods: ["GET","POST","PUT","DELETE","OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization"],
-    credentials: true
+    origin: process.env.FRONTEND_URL, // your Vercel frontend URL
+    credentials: true,                 // allows cookies or Authorization header
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // all HTTP methods you use
+    allowedHeaders: ["Content-Type", "Authorization"]     // needed for JWT auth
 }));
-
-// This ensures preflight OPTIONS requests are handled automatically
-app.options("*", cors());
 
 
 app.use(express.json());
