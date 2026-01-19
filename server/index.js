@@ -5,12 +5,26 @@ const jwt = require("jsonwebtoken");
 
 const app = express();
 
+const allowedOrigins = [process.env.FRONTEND_URL]; // Vercel URL
+
+//cors
 app.use(cors({
-    origin: process.env.FRONTEND_URL,
-    credentials: true,
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // allow preflight methods
-    allowedHeaders: ["Content-Type", "Authorization"],  // important for JWT
+    origin: function(origin, callback){
+        if(!origin) return callback(null, true); // allow non-browser requests
+        if(allowedOrigins.indexOf(origin) === -1){
+            const msg = `The CORS policy for this site does not allow access from the specified Origin.`;
+            return callback(new Error(msg), false);
+        }
+        return callback(null, true);
+    },
+    methods: ["GET","POST","PUT","DELETE","OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: true
 }));
+
+// This ensures preflight OPTIONS requests are handled automatically
+app.options("*", cors());
+
 
 app.use(express.json());
 
