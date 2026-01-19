@@ -7,13 +7,25 @@ const app = express();
 
 const allowedOrigins = [process.env.FRONTEND_URL]; // Vercel URL
 
-//cors
-app.use(cors({
-    origin: process.env.FRONTEND_URL, // your Vercel frontend URL
-    credentials: true,                 // allows cookies or Authorization header
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // all HTTP methods you use
-    allowedHeaders: ["Content-Type", "Authorization"]     // needed for JWT auth
-}));
+// ===== CORS MIDDLEWARE =====
+// Handles preflight OPTIONS requests manually for Render + CORS
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "https://typescript-postgres-todoapp-pzo1xtoy5-sai-vijnathis-projects.vercel.app");
+    res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+    res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
+    res.header("Access-Control-Allow-Credentials", "true");
+
+    if (req.method === "OPTIONS") {
+        return res.sendStatus(204); // Preflight OK
+    }
+    next();
+});
+
+// Optional: keep cors() for safety
+// app.use(cors({
+//     origin: "https://typescript-postgres-todoapp-pzo1xtoy5-sai-vijnathis-projects.vercel.app",
+//     credentials: true
+// }));
 
 
 app.use(express.json());
