@@ -25,7 +25,7 @@ const FRONTEND_URL = [process.env.FRONTEND_URL]; // Vercel URL
 
 const allowedOrigins = [
   "http://localhost:5173",
-  "https://typescript-postgres-todoapp-pzo1xtoy5-sai-vijnathis-projects.vercel.app"
+  "https://typescript-postgres-todoapp-73qc7g479-sai-vijnathis-projects.vercel.app/"
 ];
 
 app.use(
