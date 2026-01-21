@@ -11,6 +11,8 @@ const Login = () => {
 
   const navigate = useNavigate();
 
+  console.log("API BASE =", API_BASE);
+
   const userLogin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const dataToSend = {

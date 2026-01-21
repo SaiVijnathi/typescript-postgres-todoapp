@@ -24,8 +24,7 @@ const FRONTEND_URL = [process.env.FRONTEND_URL]; // Vercel URL
 // });
 
 const allowedOrigins = [
-  "http://localhost:4173",
-  "http://localhost:5173", // Vite dev default
+  "http://localhost:5173",
   "https://typescript-postgres-todoapp-pzo1xtoy5-sai-vijnathis-projects.vercel.app"
 ];
 
@@ -145,6 +144,8 @@ app.delete("/deletetodo/:id", async (req,res) => {
     }
 })
 
-app.listen(process.env.PORT, () => {
-    console.log("Listening to port 5467");
+
+const PORT = process.env.PORT || 5467;
+app.listen(PORT, () => {
+  console.log("Server running on", PORT);
 });
